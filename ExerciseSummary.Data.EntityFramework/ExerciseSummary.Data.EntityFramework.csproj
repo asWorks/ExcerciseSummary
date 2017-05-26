@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{3B72F692-CCF4-4D6B-BD8F-5E3D65F89DE3}</ProjectGuid>
+    <ProjectGuid>{6F450042-C8FC-4FEE-9C4A-21552770A21E}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ExerciseSummary.BL</RootNamespace>
-    <AssemblyName>ExerciseSummary.BL</AssemblyName>
+    <RootNamespace>ExerciseSummary.Data.EntityFramework</RootNamespace>
+    <AssemblyName>ExerciseSummary.Data.EntityFramework</AssemblyName>
     <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
@@ -31,14 +31,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
-      <HintPath>..\packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
-    <Reference Include="nunit.framework">
-      <HintPath>..\..\..\..\Pluralsite_Excercise\domain-driven-design-fundamentals\1-domain-driven-design-fundamentals-m1-exercise-files\lib\nunit\nunit.framework.dll</HintPath>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -47,25 +50,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataModel.cs" />
+    <Compile Include="EF_GenericRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repositories\EFGenericRepository.cs" />
-    <Compile Include="Repositories\EFRepository.cs" />
-    <Compile Include="Repositories\GenericRepository.cs" />
-    <Compile Include="Repositories\NewGenericRepository.cs" />
-    <Compile Include="Repositories\PersonRepository.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Excercise.Common\ExerciseSummary.Common.csproj">
-      <Project>{2be6e7ac-9757-44bf-94a0-32c77fc5cc53}</Project>
-      <Name>ExerciseSummary.Common</Name>
-    </ProjectReference>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\ExerciseSummary.Model\ExerciseSummary.Model.csproj">
-      <Project>{76378228-F95C-4D9F-95D3-5297BE81FFF8}</Project>
+      <Project>{76378228-f95c-4d9f-95d3-5297be81fff8}</Project>
       <Name>ExerciseSummary.Model</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

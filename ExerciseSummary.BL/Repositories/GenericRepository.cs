@@ -1,43 +1,58 @@
-﻿using ExerciseSummary.BL.Interfaces;
-using ExerciseSummary.BL.Models;
+﻿using ExerciseSummary.Model.Interfaces;
+using ExerciseSummary.Model.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Collections;
 
 namespace ExerciseSummary.BL.Repositories
 {
-    public class GenericRepository<T> : IRepository<T>
+    public class GenericRepository<T>:IRepository<T> where T:EntityBase
     {
+       
+        private static readonly log4net.ILog log = ExerciseSummary.Common.LogHelper.GetLogger();
 
-        //  http://www.tugberkugurlu.com/archive/generic-repository-pattern-entity-framework-asp-net-mvc-and-unit-testing-triangle
-        //  http://www.tugberkugurlu.com/archive/clean-better-and-sexier-generic-repository-implementation-for-entity-framework
+            
 
-        Database _database = null;
-        public GenericRepository(Database database)
+        public GenericRepository(IList<T> _Entities)
         {
-            if (database == null) throw new ArgumentNullException("Database", "Database darf nicht null sein");
-            _database = database;
+            if (_Entities == null) throw new ArgumentNullException("Entities", "Entities darf nicht null sein");
+            
+            Entities = _Entities;
         }
+
+       
+
+        public  IList<T>Entities { get ; set ; }
+
+     
         public void Add(T NewObject)
         {
            
+            Entities.Add(NewObject);
+
+            log.Error("Here comes the log");
+
         }
 
         public IEnumerable<T> GetItems()
         {
-            throw new NotImplementedException();
+            return (Entities);
         }
 
         public IEnumerable<T> GetItems(Func<T, bool> predicate)
         {
-            throw new NotImplementedException();
+            return Entities.Where(predicate);
         }
 
-        public T GetSingle(int id)
+
+        public T GetSingle(int ID)
         {
-            throw new NotImplementedException();
+            return Entities.Where(n => n.ID == ID).SingleOrDefault();
         }
+
+      
     }
 }

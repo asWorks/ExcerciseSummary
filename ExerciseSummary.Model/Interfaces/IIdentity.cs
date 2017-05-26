@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ExerciseSummary.BL
+namespace ExerciseSummary.Model.Interfaces
 {
-    public class Class1
+    public interface IIdentity<T>
     {
+       T ID { get; set; }
     }
 }

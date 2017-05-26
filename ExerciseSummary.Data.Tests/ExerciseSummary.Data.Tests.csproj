@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{69BA5D02-C512-423A-A401-60B84DF4CF63}</ProjectGuid>
+    <ProjectGuid>{D05D8BA1-2748-49E2-8721-E68D24EC3C50}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ExerciseSummary.BL.Tests</RootNamespace>
-    <AssemblyName>ExerciseSummary.BL.Tests</AssemblyName>
+    <RootNamespace>ExerciseSummary.Data.Tests</RootNamespace>
+    <AssemblyName>ExerciseSummary.Data.Tests</AssemblyName>
     <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -39,8 +39,11 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
-      <HintPath>..\packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.VisualStudio.TestPlatform.TestFramework, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\MSTest.TestFramework.1.1.11\lib\net45\Microsoft.VisualStudio.TestPlatform.TestFramework.dll</HintPath>
@@ -48,17 +51,14 @@
     <Reference Include="Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\MSTest.TestFramework.1.1.11\lib\net45\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll</HintPath>
     </Reference>
-    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.10.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Web.Extensions" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Repositories\GenericRepositoryTests.cs" />
-    <Compile Include="Repositories\NewGenericRepositoryTests.cs" />
-    <Compile Include="Repositories\PersonRepositoryTests.cs" />
+    <Compile Include="DataModelTests.cs" />
+    <Compile Include="EF_GenericRepositoryTests.cs" />
+    <Compile Include="UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -66,13 +66,13 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Excercise.Common\ExerciseSummary.Common.csproj">
-      <Project>{2be6e7ac-9757-44bf-94a0-32c77fc5cc53}</Project>
-      <Name>ExerciseSummary.Common</Name>
-    </ProjectReference>
     <ProjectReference Include="..\ExerciseSummary.BL\ExerciseSummary.BL.csproj">
-      <Project>{3B72F692-CCF4-4D6B-BD8F-5E3D65F89DE3}</Project>
+      <Project>{3b72f692-ccf4-4d6b-bd8f-5e3d65f89de3}</Project>
       <Name>ExerciseSummary.BL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ExerciseSummary.Data.EntityFramework\ExerciseSummary.Data.EntityFramework.csproj">
+      <Project>{6F450042-C8FC-4FEE-9C4A-21552770A21E}</Project>
+      <Name>ExerciseSummary.Data.EntityFramework</Name>
     </ProjectReference>
     <ProjectReference Include="..\ExerciseSummary.Model\ExerciseSummary.Model.csproj">
       <Project>{76378228-F95C-4D9F-95D3-5297BE81FFF8}</Project>

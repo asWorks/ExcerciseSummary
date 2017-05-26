@@ -1,11 +1,6 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using ExerciseSummary.BL.Repositories;
-using System;
-using System.Collections.Generic;
+﻿using ExerciseSummary.Model.Models;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using ExerciseSummary.BL.Models;
 
 namespace ExerciseSummary.BL.Repositories.Tests
 {
